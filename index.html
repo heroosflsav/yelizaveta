@@ -18,22 +18,22 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      color: #000; /* Set default text color to black */
     }
     #message {
       font-size: 36px;
       margin-bottom: 20px;
-      color: #fff;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      color: #000000; /* Default to black text color */
+      text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* White text shadow for contrast */
     }
     input {
       font-size: 18px;
       padding: 10px;
       margin: 10px;
       border-radius: 8px;
-      border: 1px solid #fff;
-      background: transparent;
-      color: #fff;
+      border: none;
+      background: rgba(255, 255, 255, 0.3);
+      color: #000000; /* Default to black text color */
+      outline: none;
     }
     button {
       font-family: 'Caveat', cursive;
@@ -44,7 +44,7 @@
       border-radius: 10px;
       cursor: pointer;
       background-color: #4caf50;
-      color: #fff;
+      color: #000000; /* Default to black text color */
       transition: background-color 0.3s ease;
     }
     button:hover {
@@ -53,7 +53,6 @@
     #resultMessage {
       font-size: 24px;
       margin-top: 20px;
-      color: #fff;
     }
   </style>
 </head>
@@ -63,7 +62,7 @@
 <input type="text" id="nameInput" placeholder="Name">
 <input type="text" id="surnameInput" placeholder="Surname">
 <input type="date" id="birthdayInput">
-<input type="color" id="colorInput" value="#fff" onchange="changeTextColor(this.value)">
+<input type="color" id="colorInput" value="#000000" onchange="changeTextColor(this.value)">
 <button id="submitInfo" onclick="checkBirthday()">Submit</button>
 <p id="resultMessage"></p>
 
@@ -74,10 +73,10 @@
     var birthdayInput = document.getElementById('birthdayInput').value;
     var textColor = document.getElementById('colorInput').value;
 
-    if (birthdayInput === '2005-11-20') {  // Check if entered birthday is 5 October 2005
+    if (birthdayInput === '2004-11-20') {  // Check if entered birthday is 20 kasım 2004
       var age = calculateAge(new Date(birthdayInput));
 
-      document.getElementById("resultMessage").innerHTML = "Happy " + age + "th Birthday, " + name + " " + surname + "! 🎉 🥳 🎂";
+      document.getElementById("resultMessage").innerHTML = "Happy " + age + "th Birthday, Angel " + name + " " + surname + "! 🎉🥳🎂";
       document.getElementById("resultMessage").style.color = textColor;  // Set celebration message color
     } else {
       alert('Sorry, today is not the specified birthday (20/11/2004).');
@@ -98,3 +97,6 @@
 
 </body>
 </html>
+
+
+
